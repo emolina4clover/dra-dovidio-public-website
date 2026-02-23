@@ -1,0 +1,107 @@
+---
+const treatments = [
+  {
+    title: 'Cirugía Mamaria',
+    description:
+      'Realce natural y armonioso de la figura mediante el uso de implantes de alta gama y técnicas de recuperación rápida.',
+    features: ['Implantes certificados', 'Reducción mamaria', 'Técnicas mínimamente invasivas'],
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuA6EGhvJvl0v9vSad0bEkf5ozQpt0kezbIJXHDeghqLHFU2Hkf0eOWgbOrEj5UueMbKID40-EzxL_q4TtL2oTnvLFnRaFrJWsGx7EmCKnssOXOsOWOQWH3Yej2BxDQ601LnfgZZ1rHJQ8ZqPNszJ6SqvhSagArgG1s7QUZxTtyE1r2nzlVm9p3hCG2e_7EQsemWfKRzdUuDJji6xmSDTACZEJiyC52D-r8xR-oss2G6a-YEZJXjIUvevvWgYIDPWlJKzlS6K77Zv1i0',
+    alt: 'Consulta estética para aumento mamario',
+    offset: false,
+  },
+  {
+    title: 'Rinoplastia',
+    description:
+      'Cirugía de nariz funcional y estética. Buscamos el equilibrio perfecto entre la respiración óptima y la armonía facial.',
+    features: ['Rinoplastia ultrasónica', 'Resultados proporcionales'],
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuA2vAjbE85YD53csrrdyjztWHAxRhLfGh99egHH2R-o59Gssd7YREY4pyUZdxMrkthPQTUt8HLgGYwvH0zmhjLbAQPJ0sSobjGRwsrX6cMIHnTF34mh1z5xxlKCLWSlR06TQNqv4c8E3295kzgoWzvgQx_zV0GeKwhnv55z9YNiumaGfUCcTsTSgURCf_g2ULZIN4-nYCGd_MNvDGuEaMDDM-AcFrYSeebH09VIcIQqyux8HFZjNsu8nOG1VIsjgKoRivy-wd1COlQb',
+    alt: 'Detalle estético de perfil facial para rinoplastia',
+    offset: true,
+  },
+  {
+    title: 'Abdominoplastia',
+    description:
+      'Remodelación completa del contorno abdominal, eliminando el exceso de piel y reforzando la musculatura debilitada.',
+    features: ['Marcación abdominal', 'Postoperatorio controlado'],
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuA6duu1X2Du4ylG-6tHZbbrq2q61FjnU-_yDB9I5VnXqMgi1VcCEM4QrHW0rP1shOmncZNhKNKQSZLlHJEb4OaZqszJxpOL5lj60Q7XB6XnNDpp0fTa3nxvrXIBH8XO-h1nj7LnIqtEw-e4EjBYfS9akbJYPtuZMCahr2dVLflJ9JUyEOZfXYHcg5xk4OnBa0OZlogsAxclIHhk9_d0NAEg5QIHgxcwKWjZ-AJxi44fxYrldC0m_nZRzzVJroo9Ht5ZhqiaqPJivEUj',
+    alt: 'Tratamiento de contorno corporal y abdominoplastia',
+    offset: false,
+  },
+];
+---
+
+<section id="servicios" class="py-24 sm:py-32 bg-beige dark:bg-background-dark transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16 sm:mb-24 animate-on-scroll">
+      <div class="max-w-2xl">
+        <span class="section-label mb-4 block w-fit">Tratamientos</span>
+        <h2 class="text-4xl sm:text-5xl lg:text-7xl font-black mb-4 text-rose-deep dark:text-text-dark tracking-tight">
+          Tratamientos Especializados
+        </h2>
+        <p class="text-rose-deep/60 dark:text-text-muted-dark text-lg font-light italic">
+          Soluciones quirúrgicas diseñadas a medida para tus objetivos de salud y belleza.
+        </p>
+      </div>
+      <a
+        href="#contacto"
+        class="group flex items-center gap-3 bg-white dark:bg-surface-dark px-7 py-4 rounded-full border border-primary/20 dark:border-primary/30 text-primary font-bold text-sm hover:bg-primary hover:text-white transition-all duration-300 shadow-lg flex-shrink-0"
+      >
+        Ver todos los servicios
+        <span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform duration-200" style="font-variation-settings: 'FILL' 0, 'wght' 400;">arrow_forward</span>
+      </a>
+    </div>
+
+    <!-- Grid treatments (desktop: 3 cols, mobile: 1 col) -->
+    <div class="grid md:grid-cols-3 gap-10 md:gap-8 lg:gap-12 items-start">
+      {treatments.map((t) => (
+        <div class={`stagger-item group flex flex-col ${t.offset ? 'md:translate-y-12' : ''}`}>
+          <!-- Image -->
+          <div class="relative rounded-[3rem] overflow-hidden aspect-[3/4] mb-6 sm:mb-8 shadow-2xl floating-layer border-[6px] sm:border-[8px] border-white dark:border-surface-dark">
+            <img
+              src={t.image}
+              alt={t.alt}
+              class="treatment-img w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+            <!-- Overlay on hover -->
+            <div class="absolute inset-0 bg-gradient-to-t from-rose-deep/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+
+          <!-- Content -->
+          <h3 class="text-2xl sm:text-3xl font-black mb-3 text-rose-deep dark:text-text-dark tracking-tight uppercase">
+            {t.title}
+          </h3>
+          <p class="text-rose-deep/65 dark:text-text-muted-dark mb-6 font-light leading-relaxed">
+            {t.description}
+          </p>
+
+          <!-- Features -->
+          <ul class="space-y-3 mb-6">
+            {t.features.map((feat) => (
+              <li class="flex items-center gap-3 text-xs font-bold tracking-widest uppercase text-rose-deep/70 dark:text-text-muted-dark">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+                {feat}
+              </li>
+            ))}
+          </ul>
+
+          <!-- CTA -->
+          <a
+            href="#contacto"
+            class="mt-auto group/link inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all duration-200"
+          >
+            Consultar
+            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 0, 'wght' 400;">arrow_forward</span>
+          </a>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

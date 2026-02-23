@@ -1,0 +1,196 @@
+---
+const faqs = [
+  {
+    question: "¿Qué incluye la primera consulta con la Dra. Alejandra?",
+    answer:
+      "La primera consulta es un espacio personalizado de entre 30 y 45 minutos donde la Dra. D'Ovidio escucha tus objetivos, realiza una evaluación clínica completa, explica las opciones de tratamiento disponibles y responde todas tus preguntas. No hay compromiso de ningún tipo. Se puede realizar de forma presencial en Mendoza Capital o de manera virtual por videollamada.",
+  },
+  {
+    question: "¿Las cirugías se realizan en quirófano habilitado?",
+    answer:
+      "Sí. Todos los procedimientos quirúrgicos se realizan en establecimientos sanitarios habilitados por el Ministerio de Salud de la provincia de Mendoza, con anestesiólogos certificados, instrumentadoras quirúrgicas y todos los estándares de seguridad internacionales. La Dra. D'Ovidio cuenta con matrícula profesional vigente y es miembro titular de SACPER (Sociedad Argentina de Cirugía Plástica, Estética y Reparadora).",
+  },
+  {
+    question: "¿Cuánto dura la recuperación de una rinoplastia?",
+    answer:
+      "El proceso de recuperación varía según el paciente y la técnica utilizada. En general, durante la primera semana se usa un yeso protector y puede haber hematomas e inflamación. A partir del día 7-10 la mayoría de las pacientes retoma actividades cotidianas. La inflamación residual se resuelve progresivamente durante 3 a 6 meses, momento en que se aprecia el resultado definitivo. La Dra. D'Ovidio realiza un seguimiento postoperatorio completo y personalizado.",
+  },
+  {
+    question: "¿Ofrecen financiación o planes de pago?",
+    answer:
+      "Sí. El consultorio ofrece opciones de financiación para facilitar el acceso a los tratamientos. Las condiciones específicas se evalúan de forma personalizada en la consulta. Te invitamos a contactarnos para conocer las alternativas disponibles según el procedimiento de tu interés.",
+  },
+  {
+    question: "¿Las consultas pueden realizarse de forma virtual?",
+    answer:
+      "Sí. La Dra. D'Ovidio ofrece consultas virtuales por videollamada para pacientes de toda Argentina y del exterior. Durante la videoconsulta se evalúa tu caso con fotografías clínicas que te guiaremos a tomar previamente, se explican los procedimientos aplicables y se responden todas tus dudas. Para consultas que requieran intervención quirúrgica, se coordinará al menos una visita presencial previa.",
+  },
+  {
+    question: "¿Cuál es la diferencia entre cirugía estética y cirugía reparadora?",
+    answer:
+      "La cirugía estética tiene como objetivo mejorar la apariencia y la armonía corporal en personas sin patologías. La cirugía reparadora o reconstructiva, en cambio, busca corregir defectos congénitos, secuelas de traumatismos, quemaduras o enfermedades. La Dra. D'Ovidio está formada y habilitada para realizar ambos tipos de procedimientos, con el mismo nivel de excelencia técnica y cuidado humano.",
+  },
+  {
+    question: "¿Dónde se encuentra el consultorio en Mendoza?",
+    answer:
+      "El consultorio está ubicado en Mendoza Capital, Argentina. Atendemos de lunes a viernes de 09:00 a 18:00 hs y sábados de 09:00 a 13:00 hs. Para llegar podés usar el botón de ubicación en nuestra sección de contacto, que abre directamente la app de navegación en tu celular.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+---
+
+<!-- Schema JSON-LD para rich snippets en Google -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<section id="faq" class="py-24 sm:py-32 bg-beige dark:bg-background-dark transition-colors duration-300 relative overflow-hidden">
+
+  <!-- Decorative blobs -->
+  <div class="absolute top-0 right-0 w-80 h-80 bg-primary/8 dark:bg-primary/5 rounded-full blur-3xl pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-peach/40 dark:bg-primary/5 rounded-full blur-3xl pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-14 sm:mb-20 animate-on-scroll">
+      <span class="section-label mb-5 block w-fit mx-auto">FAQ</span>
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-rose-deep dark:text-text-dark tracking-tight mb-4">
+        Preguntas Frecuentes
+      </h2>
+      <p class="text-rose-deep/60 dark:text-text-muted-dark text-lg font-light italic max-w-xl mx-auto">
+        Todo lo que necesitás saber antes de dar el primer paso.
+      </p>
+    </div>
+
+    <!-- Accordion -->
+    <div class="faq-list space-y-3" itemscope itemtype="https://schema.org/FAQPage">
+
+      {faqs.map((faq, i) => (
+        <details
+          class="faq-item group bg-white dark:bg-surface-dark rounded-2xl border border-primary/10 dark:border-primary/15 overflow-hidden transition-all duration-300 hover:border-primary/30 dark:hover:border-primary/30 hover:shadow-md animate-on-scroll"
+          itemscope
+          itemprop="mainEntity"
+          itemtype="https://schema.org/Question"
+        >
+          <summary
+            class="faq-summary flex items-center gap-4 px-6 py-5 cursor-pointer list-none select-none"
+            itemprop="name"
+          >
+            <!-- Number -->
+            <span class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-black text-primary transition-colors duration-300 group-open:bg-primary group-open:text-white"
+              style="background-color: rgba(226,151,156,0.12);">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+
+            <!-- Question text -->
+            <span class="flex-1 text-base sm:text-lg font-bold text-rose-deep dark:text-text-dark leading-snug pr-2">
+              {faq.question}
+            </span>
+
+            <!-- Chevron icon -->
+            <span
+              class="material-symbols-outlined text-primary flex-shrink-0 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-open:rotate-180"
+              style="font-variation-settings: 'FILL' 0, 'wght' 300; font-size: 1.4rem;"
+            >
+              expand_more
+            </span>
+          </summary>
+
+          <!-- Answer -->
+          <div
+            class="faq-body"
+            itemscope
+            itemprop="acceptedAnswer"
+            itemtype="https://schema.org/Answer"
+          >
+            <div itemprop="text" class="px-6 pb-6 pt-1">
+              <!-- Left accent line -->
+              <div class="flex gap-4">
+                <div class="w-px flex-shrink-0 bg-primary/30 rounded-full ml-3.5"></div>
+                <p class="text-rose-deep/70 dark:text-text-muted-dark leading-relaxed font-light text-[0.95rem]">
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
+          </div>
+        </details>
+      ))}
+
+    </div>
+
+    <!-- CTA bottom -->
+    <div class="mt-14 text-center animate-on-scroll">
+      <p class="text-rose-deep/50 dark:text-text-muted-dark text-sm italic mb-6">
+        ¿Tenés una pregunta que no está aquí?
+      </p>
+      <a
+        href="#contacto"
+        class="btn-primary inline-flex"
+      >
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 400;">chat</span>
+        Consultanos directamente
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Reset nativo del marker en todos los browsers */
+  .faq-summary::-webkit-details-marker { display: none; }
+  .faq-summary::marker { display: none; }
+
+  /* Animación del cuerpo con grid trick (smooth height) */
+  .faq-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  details[open] .faq-body {
+    grid-template-rows: 1fr;
+  }
+
+  /* El wrapper interno necesita overflow hidden para el efecto */
+  .faq-body > div {
+    overflow: hidden;
+  }
+
+  /* Borde izquierdo decorativo al abrir */
+  details[open] {
+    border-color: rgba(226, 151, 156, 0.4);
+    box-shadow: 0 4px 20px rgba(226, 151, 156, 0.1);
+  }
+
+  .dark details[open] {
+    border-color: rgba(226, 151, 156, 0.25);
+    box-shadow: 0 4px 20px rgba(226, 151, 156, 0.05);
+  }
+
+  /* Fondo sutil al abrir */
+  details[open] .faq-summary {
+    background-color: rgba(226, 151, 156, 0.05);
+  }
+
+  /* Touch feedback iOS */
+  .faq-summary:active {
+    background-color: rgba(226, 151, 156, 0.08);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .faq-body {
+      transition: none;
+    }
+  }
+</style>

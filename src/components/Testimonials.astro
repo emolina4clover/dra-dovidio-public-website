@@ -1,0 +1,112 @@
+---
+const testimonials = [
+  {
+    name: 'Mariana R.',
+    location: 'Mendoza Capital',
+    text: '"La Dra. Alejandra no solo es una excelente profesional, sino que me hizo sentir contenida desde la primera consulta. Los resultados de mi rinoplastia superaron mis expectativas."',
+    avatar:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuBXAFZ4W0AHouCIZn1YgQnUe8QvUDNr9TmdzUxEIGM6wlEUkiCRQ020KvpJRSRyJAFBgyOKF_qNRBaXxEJB415bMXJmMZNBcGotVLFsRTZpxiTHeR1htUwh_zHvap3vFs8aboS6Lu1bOtynGyOB3V7nyyQBW27oqEt7RYl4PrxQtJX4x3MXPJ1tysqDJyKACh06HBG4jSr4piPhM1a83bhN0x5iXkCWnjeBVI2TLGPb6ZxX8fBREnymDxsLIpjFJx0Ve3tDftu_EN30',
+    procedure: 'Rinoplastia',
+    reverse: false,
+  },
+  {
+    name: 'Florencia S.',
+    location: 'San Rafael',
+    text: '"Después de mis embarazos, decidí hacerme una abdominoplastia. El equipo de la Dra. Alejandra es increíble, me guiaron en todo el postoperatorio. ¡Me siento nueva!"',
+    avatar:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuACUI34kQrKQTu3muxKRgGFsKZOVoACBdNlMZC77LgW00ZlEL-k1pggqFpV1Rq24BV1Er6n5qF7ycowkJnscl1yDfTGJCyrxS3XJZvTRK-36SceFz9laeorUBYnFtuc8xBvij_rjZJC_ZsVqw30-00KicsYWr0a-BP4Y-2KGdyGlfrVva2O1qTEqHMhKd7q7n1jbV-RDsst-KBHwHfDN2HktQRe9stmE5W_1fNHu1PYTFCGqZ07H4XsRw7mt8vQw97PvFjipUQkOXYs',
+    procedure: 'Abdominoplastia',
+    reverse: true,
+  },
+];
+---
+
+<section id="testimonios" class="py-24 sm:py-32 bg-white dark:bg-background-dark transition-colors duration-300 relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-0 right-0 w-72 h-72 bg-peach/30 dark:bg-primary/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-peach/20 dark:bg-primary/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-16 sm:mb-24 animate-on-scroll">
+      <span class="section-label mb-5 block w-fit mx-auto">Testimonios</span>
+      <h2 class="text-4xl sm:text-5xl lg:text-7xl font-black mb-4 text-rose-deep dark:text-text-dark tracking-tight">
+        Historias de Cambio
+      </h2>
+      <p class="text-rose-deep/60 dark:text-text-muted-dark text-lg font-light italic max-w-lg mx-auto">
+        Lo que dicen nuestras pacientes sobre su experiencia y resultados.
+      </p>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="flex flex-col gap-10 sm:gap-14">
+      {testimonials.map((t) => (
+        <div class={`animate-on-scroll relative group ${t.reverse ? 'lg:ml-20' : ''}`}>
+          <!-- Shadow decoration -->
+          <div class={`absolute inset-0 rounded-[3rem] -z-10 opacity-40 transition-opacity duration-500 group-hover:opacity-70 ${t.reverse ? 'bg-primary/10 dark:bg-primary/5 -translate-x-3 translate-y-3' : 'bg-peach dark:bg-primary/5 translate-x-3 translate-y-3'}`}></div>
+
+          <!-- Card -->
+          <div class={`relative p-8 sm:p-12 lg:p-16 rounded-[3rem] border border-primary/15 dark:border-primary/20 shadow-sm flex flex-col lg:flex-row items-center gap-8 lg:gap-12 transition-all duration-300 hover:shadow-xl ${t.reverse ? 'lg:flex-row-reverse bg-white dark:bg-surface-dark' : 'bg-beige/60 dark:bg-surface-dark'}`}>
+
+            <!-- Avatar -->
+            <div class="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full border-4 border-white dark:border-background-dark shadow-xl overflow-hidden flex-shrink-0">
+              <img
+                src={t.avatar}
+                alt={`Paciente ${t.name}`}
+                class="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            <!-- Content -->
+            <div class={`flex-1 ${t.reverse ? 'lg:text-right' : ''}`}>
+              <!-- Stars -->
+              <div class={`flex gap-1 mb-5 ${t.reverse ? 'lg:justify-end' : ''}`}>
+                {[1,2,3,4,5].map(() => (
+                  <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1, 'wght' 400;">star</span>
+                ))}
+              </div>
+
+              <!-- Quote -->
+              <p class="text-lg sm:text-xl lg:text-2xl text-rose-deep dark:text-text-dark italic font-light leading-relaxed mb-6">
+                {t.text}
+              </p>
+
+              <!-- Attribution -->
+              <div>
+                <p class="font-black text-base sm:text-lg text-rose-deep dark:text-text-dark uppercase tracking-widest">
+                  {t.name}
+                </p>
+                <div class={`flex items-center gap-2 mt-1 ${t.reverse ? 'lg:justify-end' : ''}`}>
+                  <span class="text-primary font-bold text-xs uppercase tracking-[0.2em]">{t.location}</span>
+                  <span class="w-1 h-1 rounded-full bg-primary/40"></span>
+                  <span class="text-rose-deep/50 dark:text-text-muted-dark text-xs uppercase tracking-wider font-semibold">{t.procedure}</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA bottom -->
+    <div class="text-center mt-16 animate-on-scroll">
+      <p class="text-rose-deep/50 dark:text-text-muted-dark text-sm italic mb-6">
+        Más de 2.000 pacientes satisfechas avalan nuestra trayectoria
+      </p>
+      <a
+        href="#contacto"
+        class="btn-primary inline-flex"
+      >
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 400;">calendar_month</span>
+        Comenzar mi transformación
+      </a>
+    </div>
+
+  </div>
+</section>

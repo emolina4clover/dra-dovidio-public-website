@@ -1,0 +1,155 @@
+---
+const CALENDLY_URL = 'https://calendly.com/aledovidioatan-oywu/30min';
+
+const heroImage = '/ale-hero.jpeg';
+---
+
+<section
+  id="inicio"
+  class="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden"
+>
+  <!-- Background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-b from-peach/25 via-background-light to-background-light dark:from-background-dark dark:via-background-dark dark:to-background-dark pointer-events-none"></div>
+
+  <!-- Decorative blobs -->
+  <div class="absolute top-1/4 left-0 w-72 h-72 sm:w-96 sm:h-96 bg-primary/15 rounded-full blur-3xl pointer-events-none -translate-x-1/2"></div>
+  <div class="absolute bottom-1/4 right-0 w-80 h-80 sm:w-[28rem] sm:h-[28rem] bg-peach/50 dark:bg-primary/10 rounded-full blur-3xl pointer-events-none translate-x-1/2"></div>
+  <div class="absolute top-0 right-1/4 w-48 h-48 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+
+    <!-- Badge location -->
+    <div class="animate-on-scroll mb-8 sm:mb-10">
+      <span class="section-label">
+        <span class="material-symbols-outlined text-xs align-middle mr-1" style="font-variation-settings: 'FILL' 1, 'wght' 400;">location_on</span>
+        Mendoza, Argentina
+      </span>
+    </div>
+
+    <!-- Imagen circular hero -->
+    <div class="animate-on-scroll scale relative mb-10 sm:mb-14">
+      <!-- Glow decoration -->
+      <div class="absolute inset-0 rounded-full bg-primary/20 blur-2xl scale-110 pointer-events-none animate-[float_5s_ease-in-out_infinite]"></div>
+
+      <!-- Image circle -->
+      <div class="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-[10px] sm:border-[14px] border-white dark:border-surface-dark shadow-2xl floating-layer mx-auto">
+        <img
+          src={heroImage}
+          alt="Dra. Alejandra D'Ovidio en su consultorio médico moderno"
+          class="w-full h-full object-cover scale-110"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+
+      <!-- Floating badge -->
+      <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white dark:bg-surface-dark shadow-xl border border-primary/20 rounded-full px-4 py-2 flex items-center gap-2 whitespace-nowrap">
+        <span class="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse flex-shrink-0"></span>
+        <span class="text-xs font-bold uppercase tracking-widest text-rose-deep dark:text-text-dark">Consultas Disponibles</span>
+      </div>
+    </div>
+
+    <!-- Titulo principal -->
+    <h1 class="animate-on-scroll max-w-4xl mx-auto text-balance mb-6 sm:mb-8 mt-6">
+      <span class="block text-3xl sm:text-5xl lg:text-7xl font-black text-rose-deep dark:text-text-dark leading-[1.05] tracking-tighter">
+        Cirujana Plástica en Mendoza:
+      </span>
+      <span class="block text-3xl sm:text-5xl lg:text-7xl font-display italic font-bold text-primary leading-[1.05] mt-1">
+        Excelencia y Calidez.
+      </span>
+    </h1>
+
+    <!-- Subtitulo -->
+    <p class="animate-on-scroll max-w-2xl mx-auto text-base sm:text-lg lg:text-xl text-rose-deep/65 dark:text-text-muted-dark mb-10 sm:mb-14 leading-relaxed font-light italic">
+      Especialista en cirugía estética con un enfoque de bienestar integral para resaltar tu mejor versión a través de técnicas de vanguardia y resultados naturales.
+    </p>
+
+    <!-- CTAs -->
+    <div class="animate-on-scroll flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md sm:max-w-none">
+      <button
+        id="hero-calendly-btn"
+        data-calendly-url={CALENDLY_URL}
+        class="hero-btn-primary group relative overflow-hidden text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-white flex items-center justify-center gap-2.5 transition-all duration-300"
+      >
+        <!-- Shimmer sweep -->
+        <span class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"></span>
+        <!-- Icon with subtle bounce -->
+        <span class="material-symbols-outlined transition-transform duration-300 group-hover:rotate-12" style="font-variation-settings: 'FILL' 0, 'wght' 400;">calendar_month</span>
+        Agendar consulta virtual
+      </button>
+      <a
+        href="#servicios"
+        class="hero-btn-secondary group relative overflow-hidden text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-full font-bold flex items-center justify-center gap-2.5 transition-all duration-300"
+      >
+        Ver tratamientos
+        <span class="material-symbols-outlined text-lg opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" style="font-variation-settings: 'FILL' 0, 'wght' 400;">arrow_downward</span>
+      </a>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="animate-on-scroll mt-16 sm:mt-20 flex flex-col items-center gap-2 opacity-40">
+      <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-rose-deep dark:text-text-muted-dark">Descubrir</span>
+      <div class="w-px h-12 bg-gradient-to-b from-primary to-transparent animate-[float_2s_ease-in-out_infinite]"></div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .hero-btn-primary {
+    background-color: #E2979C;
+    box-shadow: 0 6px 24px rgba(226, 151, 156, 0.45),
+                0 0 0 0 rgba(226, 151, 156, 0);
+    animation: btn-glow-pulse 3s ease-in-out infinite;
+  }
+  .hero-btn-primary:hover {
+    background-color: #C97D82;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 36px rgba(226, 151, 156, 0.55),
+                0 0 0 6px rgba(226, 151, 156, 0.12);
+  }
+  .hero-btn-primary:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .hero-btn-secondary {
+    background-color: rgba(255, 255, 255, 0.65);
+    border: 1.5px solid rgba(226, 151, 156, 0.35);
+    color: #8E5E61;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+  .hero-btn-secondary:hover {
+    background-color: white;
+    border-color: rgba(226, 151, 156, 0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(226, 151, 156, 0.2);
+    color: #C97D82;
+  }
+  .hero-btn-secondary:active {
+    transform: translateY(0);
+  }
+
+  @keyframes btn-glow-pulse {
+    0%, 100% { box-shadow: 0 6px 24px rgba(226, 151, 156, 0.45), 0 0 0 0 rgba(226, 151, 156, 0); }
+    50%       { box-shadow: 0 6px 28px rgba(226, 151, 156, 0.5), 0 0 0 8px rgba(226, 151, 156, 0.08); }
+  }
+
+  /* Respeta reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-btn-primary { animation: none; }
+  }
+</style>
+
+<script>
+  document.getElementById('hero-calendly-btn')?.addEventListener('click', (e) => {
+    const btn = e.currentTarget as HTMLButtonElement;
+    const url = btn.dataset.calendlyUrl || '';
+    window.dispatchEvent(new Event('calendly:open'));
+    if (typeof (window as any).Calendly !== 'undefined') {
+      (window as any).Calendly.initPopupWidget({ url });
+    } else {
+      window.open(url, '_blank');
+    }
+  });
+</script>

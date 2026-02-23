@@ -1,0 +1,92 @@
+---
+const cards = [
+  {
+    icon: 'stethoscope',
+    title: 'Enfoque Físico',
+    description:
+      'Procedimientos quirúrgicos seguros utilizando tecnología de última generación y protocolos internacionales de vanguardia.',
+    bgDecor: 'bg-peach dark:bg-primary/20',
+    bg: 'bg-beige dark:bg-surface-dark',
+    iconBg: 'bg-white dark:bg-background-dark',
+    rotate: 'rotate-3',
+  },
+  {
+    icon: 'favorite',
+    title: 'Salud Emocional',
+    description:
+      'Acompañamiento empático y personalizado para asegurar que te sientas contenida y segura en cada etapa de tu proceso.',
+    bgDecor: 'bg-primary/15 dark:bg-primary/10',
+    bg: 'bg-white dark:bg-surface-dark',
+    iconBg: 'bg-peach dark:bg-background-dark',
+    rotate: '-rotate-3',
+    featured: true,
+  },
+  {
+    icon: 'auto_awesome',
+    title: 'Armonía Estética',
+    description:
+      'Resultados naturales que potencian tu confianza y belleza propia sin perder tu esencia personal única.',
+    bgDecor: 'bg-peach dark:bg-primary/20',
+    bg: 'bg-beige dark:bg-surface-dark',
+    iconBg: 'bg-white dark:bg-background-dark',
+    rotate: 'rotate-6',
+  },
+];
+---
+
+<section class="py-24 sm:py-32 bg-white dark:bg-background-dark relative overflow-hidden transition-colors duration-300">
+  <!-- Decorative background -->
+  <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] bg-peach/20 dark:bg-primary/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-16 sm:mb-24 animate-on-scroll">
+      <span class="section-label mb-5 block w-fit mx-auto">Nuestro Enfoque</span>
+      <h2 class="text-4xl sm:text-5xl lg:text-7xl font-black text-rose-deep dark:text-text-dark mb-5 tracking-tight">
+        Bienestar Integral
+      </h2>
+      <div class="h-1 w-20 bg-primary mx-auto mb-6 rounded-full"></div>
+      <p class="text-rose-deep/60 dark:text-text-muted-dark max-w-xl mx-auto text-lg italic font-light">
+        Nuestro enfoque holístico combina la precisión técnica con el cuidado humano para garantizar resultados armoniosos.
+      </p>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+      {cards.map((card, i) => (
+        <div class={`stagger-item relative group ${card.featured ? 'md:mt-8' : ''}`}>
+          <!-- Rotated background decor -->
+          <div class={`absolute inset-0 ${card.bgDecor} rounded-[2.5rem] ${card.rotate} group-hover:rotate-0 transition-transform duration-500 pointer-events-none`}></div>
+
+          <!-- Card content -->
+          <div class={`relative ${card.bg} p-10 lg:p-12 rounded-[2.5rem] border border-primary/10 dark:border-primary/20 h-full shadow-sm hover:-translate-y-3 transition-transform duration-500`}>
+            <!-- Icon -->
+            <div class={`w-14 h-14 ${card.iconBg} rounded-2xl flex items-center justify-center mb-8 shadow-sm`}>
+              <span
+                class="material-symbols-outlined text-3xl text-primary"
+                style="font-variation-settings: 'FILL' 0, 'wght' 300;"
+              >
+                {card.icon}
+              </span>
+            </div>
+
+            <h3 class="text-xl font-black mb-4 text-rose-deep dark:text-text-dark uppercase tracking-tight">
+              {card.title}
+            </h3>
+            <p class="text-rose-deep/65 dark:text-text-muted-dark leading-relaxed font-light">
+              {card.description}
+            </p>
+
+            <!-- Decorative line -->
+            <div class="mt-8 h-px w-12 bg-primary/30 group-hover:w-full transition-all duration-700 rounded-full"></div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
