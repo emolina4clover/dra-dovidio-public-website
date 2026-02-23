@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   web:
+    image: ghcr.io/emolina4clover/dra-dovidio-website:latest
     build:
       context: .
       dockerfile: Dockerfile
